@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import flask
+import textwrap
 
 
 app = flask.Flask(__name__)
@@ -9,7 +10,14 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<html><body>hello, world</body></html>'
+    content = textwrap.dedent('''\
+            <html>
+              <body>
+                hello, world
+              </body>
+            </html>
+        ''')
+    return content
 
 
 if __name__ == '__main__':
